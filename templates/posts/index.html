@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    text
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+{% include 'posts/includes/nav.html' %}
+
+<h1>{{title}}</h1>
+
+<ul>
+         {% for p in posts %}
+         {% if p.is_published %}
+         <li>
+                   <h2>{{p.title}}</h2>
+                   <p >{{p.content}}</p>
+                   <p ><a href="{% url 'posts' p.id %}">Читать пост</a></p>
+                   {% if not forloop.last %}
+                   <hr>
+                   {% endif %}
+         </li>
+         {% endif %}
+         {% endfor %}
+</ul>
+
+{% include 'posts/includes/nav.html' %}
+{% endblock %}
