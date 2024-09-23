@@ -14,7 +14,7 @@ class Post(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='posts/', blank=True)
+    image = models.ImageField(upload_to='posts/images/', blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     stock = models.PositiveIntegerField(default=0)
 
