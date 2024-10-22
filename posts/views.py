@@ -20,11 +20,11 @@ def index(request):
         'menu': menu,
         'posts': data_db,
     }
-    return render(request, 'posts/index.html', context=data)
+    return render(request, 'index.html', context=data)
 
 
 def categories(request):
-    return render(request, 'posts/index.html')
+    return render(request, 'index.html')
 
 
 def archive(request, year):
